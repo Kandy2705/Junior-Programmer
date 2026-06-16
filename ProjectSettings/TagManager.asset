@@ -7,6 +7,9 @@ TagManager:
   - Dog
   - Ground
   - Obstacle
+  - Powerup
+  - Enemy
+  - Player Goal
   layers:
   - Default
   - TransparentFX
