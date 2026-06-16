@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Player Goal
   - Destroy Zone
+  - Bad
   layers:
   - Default
   - TransparentFX
