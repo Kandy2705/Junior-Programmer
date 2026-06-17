@@ -563,6 +563,35 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &659157679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9218789665062268449, guid: dc3c06623d626402a8d038591130c79e, type: 3}
+  m_PrefabInstance: {fileID: 6047429986002585089}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &659157687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659157679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e62e9a8a22fac478a927ce940e28f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mission6.DetectCollisions
+--- !u!114 &659157688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659157679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c52ee72091692143869a36cdefe1fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mission6.DestroyOutOfBounds
 --- !u!1 &992285705
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,6 +636,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1351731488}
   - component: {fileID: 1351731487}
+  - component: {fileID: 1351731489}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -621,7 +651,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1351731486}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32aad20aa8e3c42e88b20683232af710, type: 3}
   m_Name: 
@@ -654,6 +684,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1351731489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351731486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c0e1f24e2ce4a5b9bf1f3a7499cd45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mission6.ObjectPooler
+  pooledObjects: []
+  objectToPool: {fileID: 6305259618406521279, guid: cd1f0edab7b934017ae78bd8a2ce258a, type: 3}
+  amountToPool: 20
 --- !u!1 &1590138454
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,14 +847,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 100046, guid: 3cf7f489270aac84fb12901330960a5b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1798916032}
+      addedObject: {fileID: 1798916035}
   m_SourcePrefab: {fileID: 100100000, guid: 3cf7f489270aac84fb12901330960a5b, type: 3}
 --- !u!1 &1798916031 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100046, guid: 3cf7f489270aac84fb12901330960a5b, type: 3}
   m_PrefabInstance: {fileID: 1798916030}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1798916032
+--- !u!114 &1798916035
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -818,119 +863,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1798916031}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ed75e692bfb4b9a9acbc58dde708a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 38e917c52987daa41af6a0305d9813c6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Mission2.PlayerController
-  moveAction:
-    m_Name: Move
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: cc784e6f-4f15-4a5f-afbd-7666eadb2a27
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 2D Vector
-      m_Id: f3ef187e-d9e2-4486-a912-90241077c3d3
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 04238fd0-b629-472f-8caa-c638bc7a85be
-      m_Path: <Keyboard>/upArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: down
-      m_Id: f4aa9f6d-f718-4ba9-a509-a76acc1f2c5b
-      m_Path: <Keyboard>/downArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: left
-      m_Id: d3ced544-c79e-480e-b0ce-42eda91ba7aa
-      m_Path: <Keyboard>/leftArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: right
-      m_Id: 21cff2d9-6748-413e-bd19-9d10c5339788
-      m_Path: <Keyboard>/rightArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: 2D Vector
-      m_Id: a63312fd-26f9-4494-b195-fe7fac623c84
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 4
-    - m_Name: up
-      m_Id: f6d98258-812a-4bcd-8325-3af4d662631d
-      m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 30479345-b156-4972-ad3b-22f78a3605ec
-      m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: left
-      m_Id: b5092e06-1d07-480c-839f-f567c0d8bb1e
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: right
-      m_Id: b0a2114c-e9dd-41c6-8a6b-6afdc385754b
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    m_Flags: 0
-  moveInput: {x: 0, y: 0}
-  speed: 15
-  xRange: 10
-  projectilePrefab: {fileID: 6305259618406521279, guid: cd1f0edab7b934017ae78bd8a2ce258a, type: 3}
-  fireAction:
-    m_Name: Fire
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 9567b6cb-e135-485e-b4ce-7052f3dc9fde
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 568e85b7-1ed7-4ea7-ae0c-c6e474a8aa21
-      m_Path: <Keyboard>/space
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Fire
-      m_Flags: 0
-    m_Flags: 0
+  m_EditorClassIdentifier: Assembly-CSharp::Mission6.PlayerController
+  projectilePrefab: {fileID: 0}
 --- !u!1001 &5894845500294661029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1097,10 +1033,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Animal_Moose_02
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4012227777856571910, guid: dc3c06623d626402a8d038591130c79e, type: 3}
+    - {fileID: 8755427079220671970, guid: dc3c06623d626402a8d038591130c79e, type: 3}
+    - {fileID: 5083190460621739811, guid: dc3c06623d626402a8d038591130c79e, type: 3}
+    - {fileID: 6126583351217157574, guid: dc3c06623d626402a8d038591130c79e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9218789665062268449, guid: dc3c06623d626402a8d038591130c79e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 659157688}
+    - targetCorrespondingSourceObject: {fileID: 9218789665062268449, guid: dc3c06623d626402a8d038591130c79e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 659157687}
   m_SourcePrefab: {fileID: 100100000, guid: dc3c06623d626402a8d038591130c79e, type: 3}
 --- !u!1001 &7005585869002272719
 PrefabInstance:

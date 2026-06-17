@@ -2962,10 +2962,10 @@ GameObject:
   - component: {fileID: 3372921073893841369}
   - component: {fileID: 8144451647120888940}
   - component: {fileID: 7118914403692620479}
-  - component: {fileID: 1045794541588208653}
   - component: {fileID: 9011483961981645700}
   - component: {fileID: 3736521219183354527}
-  - component: {fileID: 8774980554329589924}
+  - component: {fileID: 3927800719855307620}
+  - component: {fileID: 1720459957055298578}
   m_Layer: 0
   m_Name: Dog_BullDog_01
   m_TagString: Untagged
@@ -3060,18 +3060,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveForward
   speed: 5
---- !u!114 &1045794541588208653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4169518237822323409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dd218b4e30564f8d9e08494b120e2ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DestroyOutOfBounds
 --- !u!54 &9011483961981645700
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3120,7 +3108,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.14973779, y: 0.5762249, z: 0.34061298}
   m_Center: {x: -0.008676646, y: 0.21188828, z: 0.03470456}
---- !u!114 &8774980554329589924
+--- !u!114 &3927800719855307620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3129,9 +3117,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 4169518237822323409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 093112c8165b544e49f5e367286650e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 81e62e9a8a22fac478a927ce940e28f7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DetectCollisions
+  m_EditorClassIdentifier: Assembly-CSharp::Mission6.DetectCollisions
+--- !u!114 &1720459957055298578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4169518237822323409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c52ee72091692143869a36cdefe1fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mission6.DestroyOutOfBounds
 --- !u!1 &4284203215752510305
 GameObject:
   m_ObjectHideFlags: 0

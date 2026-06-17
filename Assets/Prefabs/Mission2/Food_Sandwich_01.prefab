@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4646726588463101223}
   - component: {fileID: 273408701520574408}
   - component: {fileID: 6274694774361799663}
+  - component: {fileID: -8835917321220762077}
   - component: {fileID: 3253718357894197493}
   - component: {fileID: 8796209475947752283}
   - component: {fileID: 6578272396806105402}
@@ -107,6 +108,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveForward
   speed: 40
+--- !u!114 &-8835917321220762077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6305259618406521279}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c52ee72091692143869a36cdefe1fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mission6.DestroyOutOfBounds
 --- !u!114 &3253718357894197493
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1219,10 +1219,10 @@ GameObject:
   - component: {fileID: 8910032250486727227}
   - component: {fileID: 8211177446862440700}
   - component: {fileID: 6259025660880551607}
-  - component: {fileID: 198801015121660638}
   - component: {fileID: 5155196519691399023}
+  - component: {fileID: 2403043883293163587}
   - component: {fileID: 7974101594789294694}
-  - component: {fileID: 6718599633927079986}
+  - component: {fileID: 7411228538891938150}
   m_Layer: 0
   m_Name: Animal_Cow_Brown
   m_TagString: Untagged
@@ -1281,18 +1281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveForward
   speed: 15
---- !u!114 &198801015121660638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4858583243789821686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dd218b4e30564f8d9e08494b120e2ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DestroyOutOfBounds
 --- !u!54 &5155196519691399023
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1320,6 +1308,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2403043883293163587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4858583243789821686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c52ee72091692143869a36cdefe1fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mission6.DestroyOutOfBounds
 --- !u!65 &7974101594789294694
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1341,7 +1341,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 11.863366, y: 34.88899, z: 48.182297}
   m_Center: {x: -0.06316238, y: 15.084932, z: 0.0020874871}
---- !u!114 &6718599633927079986
+--- !u!114 &7411228538891938150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1350,9 +1350,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4858583243789821686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 093112c8165b544e49f5e367286650e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 81e62e9a8a22fac478a927ce940e28f7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DetectCollisions
+  m_EditorClassIdentifier: Assembly-CSharp::Mission6.DetectCollisions
 --- !u!1 &4879140692375787132
 GameObject:
   m_ObjectHideFlags: 0
