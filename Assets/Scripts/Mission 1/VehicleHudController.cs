@@ -13,6 +13,8 @@ public class VehicleHudController : MonoBehaviour
     [SerializeField] private TMP_Text speedText;
     [SerializeField] private TMP_Text gearText;
     [SerializeField] private TMP_Text rpmText;
+    [SerializeField] private TMP_Text steeringText;
+    [SerializeField] private TMP_Text accelerationText;
 
     [Header("Gear Pop Animation")]
     [SerializeField] private float gearPopScale = 1.25f;
@@ -74,6 +76,16 @@ public class VehicleHudController : MonoBehaviour
         if (rpmText != null)
         {
             rpmText.text = $"RPM: {playerController.CurrentRpm:0}";
+        }
+
+        if (steeringText != null)
+        {
+            steeringText.text = $"Steering: {playerController.CurrentSteeringAngle:0.0}°";
+        }
+
+        if (accelerationText != null)
+        {
+            accelerationText.text = $"Accel: {playerController.CurrentAccelerationKmhPerSecond:0.0} km/h/s";
         }
     }
 

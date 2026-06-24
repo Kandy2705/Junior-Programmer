@@ -45,6 +45,10 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Bán kính bánh xe dùng để tính tốc độ quay visual.")]
     [SerializeField] private float wheelRadius = 0.35f;
 
+    [SerializeField] private float wallImpactSpeedLoss = 0.45f;
+    [SerializeField] private float wallReboundSpeedRatio = 0.25f;
+    [SerializeField] private float wallPushOutDistance = 0.45f;
+
     private readonly float[] _gearMaxSpeedsKmh = { 50f, 90f, 140f, 180f };
     private readonly float[] _gearAccelerationKmhPerSecond =
     {
@@ -59,6 +63,8 @@ public class PlayerController : MonoBehaviour
     private int _currentGear = 1;
     private float _currentRpm;
     private float _currentSpeedKmh;
+    private float _currentAccelerationKmhPerSecond;
+    private float _previousSpeedKmh;
     private float _currentSteeringAngle;
     private float _wheelSpinAngle;
     private float _lastShiftTime;
@@ -72,6 +78,7 @@ public class PlayerController : MonoBehaviour
     public float CurrentRpm => _currentRpm;
     public float CurrentSpeedKmh => _currentSpeedKmh;
     public float CurrentSteeringAngle => _currentSteeringAngle;
+    public float CurrentAccelerationKmhPerSecond => _currentAccelerationKmhPerSecond;
 
     public event Action<int> GearChanged;
 
@@ -97,6 +104,9 @@ public class PlayerController : MonoBehaviour
         MoveVehicle();
         UpdateWheelVisuals();
         StabilizeVehicle();
+
+        _currentAccelerationKmhPerSecond = (_currentSpeedKmh - _previousSpeedKmh) / Time.fixedDeltaTime;
+        _previousSpeedKmh = _currentSpeedKmh;
     }
 
     private float GetThrottleInput()
@@ -315,32 +325,50 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (IsWallLikeCollision(collision))
-        {
-            _currentSpeedKmh *= 0.8f;
-        }
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if (!IsWallLikeCollision(collision))
+        if (!TryGetWallCollisionNormal(collision, out Vector3 wallNormal))
         {
             return;
         }
 
-        _currentSpeedKmh = Mathf.MoveTowards(
-            _currentSpeedKmh,
-            0f,
-            brakeKmhPerSecond * Time.fixedDeltaTime
-        );
+        HandleWallImpact(wallNormal);
     }
 
-    private bool IsWallLikeCollision(Collision collision)
+    private void HandleWallImpact(Vector3 wallNormal)
     {
+        Vector3 horizontalNormal = new Vector3(wallNormal.x, 0f, wallNormal.z).normalized;
+
+        if (horizontalNormal.sqrMagnitude < 0.001f)
+        {
+            return;
+        }
+
+        float speedBeforeImpact = Mathf.Abs(_currentSpeedKmh);
+
+        // Đẩy xe ra khỏi tường một đoạn nhỏ để không bị kẹt collider.
+        _rigidbody.position += horizontalNormal * wallPushOutDistance;
+
+        // Nếu xe đang lao đầu vào tường, cho xe bật lùi nhẹ.
+        float forwardDotWallNormal = Vector3.Dot(transform.forward, horizontalNormal);
+
+        if (forwardDotWallNormal < -0.2f)
+        {
+            _currentSpeedKmh = -speedBeforeImpact * wallReboundSpeedRatio;
+        }
+        else
+        {
+            _currentSpeedKmh *= wallImpactSpeedLoss;
+        }
+    }
+
+    private bool TryGetWallCollisionNormal(Collision collision, out Vector3 wallNormal)
+    {
+        wallNormal = Vector3.zero;
+
         foreach (ContactPoint contact in collision.contacts)
         {
             if (contact.normal.y < 0.5f)
             {
+                wallNormal = contact.normal;
                 return true;
             }
         }
