@@ -108,3 +108,4 @@ InitTestScene*.unity*
 
 # Oversized third-party asset files that exceed GitHub's 100 MB limit
 Assets/Packages/
+Assets/Packages.meta
