@@ -2,10 +2,6 @@ using PrimeTween;
 using TMPro;
 using UnityEngine;
 
-/// <summary>
-/// Displays vehicle speed, gear, and RPM on the gameplay HUD.
-/// Plays a small PrimeTween animation when the vehicle changes gear.
-/// </summary>
 public class VehicleHudController : MonoBehaviour
 {
     [Header("References")]

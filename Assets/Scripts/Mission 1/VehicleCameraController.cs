@@ -2,10 +2,6 @@ using PrimeTween;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-/// <summary>
-/// Controls first-person and third-person vehicle camera views.
-/// Supports mouse look and smooth PrimeTween transitions between views.
-/// </summary>
 public class VehicleCameraController : MonoBehaviour
 {
     [Header("Target")]
@@ -24,11 +20,15 @@ public class VehicleCameraController : MonoBehaviour
     [SerializeField] private float minPitch = -25f;
     [SerializeField] private float maxPitch = 65f;
 
+    [SerializeField] private bool returnBehindVehicleWhenMouseReleased = false;
+
+    [SerializeField] private float returnBehindSpeed = 180f;
+
     [Header("Transition")]
     [SerializeField] private float switchDuration = 0.35f;
 
     private bool _isFirstPerson;
-    private float _yaw;
+    private float _orbitYawOffset;
     private float _pitch;
     private Vector3 _currentOffset;
 
@@ -43,7 +43,7 @@ public class VehicleCameraController : MonoBehaviour
 
         _currentOffset = thirdPersonOffset;
         _pitch = thirdPersonPitch;
-        _yaw = target.eulerAngles.y;
+        _orbitYawOffset = 0f;
 
         ApplyCameraPositionInstant();
     }
@@ -66,16 +66,37 @@ public class VehicleCameraController : MonoBehaviour
             SwitchView();
         }
 
+        HandleMouseLook();
+    }
+
+    private void HandleMouseLook()
+    {
         if (Mouse.current == null)
         {
             return;
         }
 
-        Vector2 mouseDelta = Mouse.current.delta.ReadValue();
+        bool isHoldingLeftMouse = Mouse.current.leftButton.isPressed;
 
-        _yaw += mouseDelta.x * mouseSensitivity;
-        _pitch -= mouseDelta.y * mouseSensitivity;
-        _pitch = Mathf.Clamp(_pitch, minPitch, maxPitch);
+        if (isHoldingLeftMouse)
+        {
+            Vector2 mouseDelta = Mouse.current.delta.ReadValue();
+
+            _orbitYawOffset += mouseDelta.x * mouseSensitivity;
+            _pitch -= mouseDelta.y * mouseSensitivity;
+            _pitch = Mathf.Clamp(_pitch, minPitch, maxPitch);
+
+            return;
+        }
+
+        if (returnBehindVehicleWhenMouseReleased)
+        {
+            _orbitYawOffset = Mathf.MoveTowards(
+                _orbitYawOffset,
+                0f,
+                returnBehindSpeed * Time.deltaTime
+            );
+        }
     }
 
     private void SwitchView()
@@ -106,7 +127,8 @@ public class VehicleCameraController : MonoBehaviour
 
     private void FollowTarget()
     {
-        Quaternion lookRotation = Quaternion.Euler(_pitch, _yaw, 0f);
+        float finalYaw = target.eulerAngles.y + _orbitYawOffset;
+        Quaternion lookRotation = Quaternion.Euler(_pitch, finalYaw, 0f);
 
         Vector3 targetPosition = target.position + lookRotation * _currentOffset;
 
@@ -125,7 +147,9 @@ public class VehicleCameraController : MonoBehaviour
 
     private void ApplyCameraPositionInstant()
     {
-        Quaternion lookRotation = Quaternion.Euler(_pitch, _yaw, 0f);
+        float finalYaw = target.eulerAngles.y + _orbitYawOffset;
+        Quaternion lookRotation = Quaternion.Euler(_pitch, finalYaw, 0f);
+
         transform.position = target.position + lookRotation * _currentOffset;
 
         Vector3 lookPoint = target.position + Vector3.up * 1.2f;

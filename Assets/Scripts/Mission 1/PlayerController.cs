@@ -2,20 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-/// <summary>
-/// Controls a car-like vehicle with acceleration, braking, speed-based steering,
-/// wheel visualization, RPM, and a simple automatic gearbox.
-/// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Speed")]
     [SerializeField] private float maxSpeedKmh = 180f;
 
-    [Tooltip("Lực cản khi thả ga, đơn vị km/h mỗi giây.")]
     [SerializeField] private float coastDragKmhPerSecond = 8f;
 
-    [Tooltip("Lực phanh khi nhấn Space, đơn vị km/h mỗi giây.")]
     [SerializeField] private float brakeKmhPerSecond = 45f;
 
     [Header("Engine And Gearbox")]
@@ -23,17 +17,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float shiftUpRpm = 7500f;
     [SerializeField] private float shiftDownRpm = 3000f;
 
-    [Tooltip("Trễ nhỏ để xe không bị nhảy số liên tục.")]
     [SerializeField] private float shiftCooldown = 0.35f;
 
     [Header("Steering")]
     [SerializeField] private float steeringAngleAtZeroSpeed = 45f;
     [SerializeField] private float steeringAngleAtMaxSpeed = 10f;
 
-    [Tooltip("Thời gian để bánh lái đi từ 0 độ tới góc lái tối đa.")]
     [SerializeField] private float steeringFullLockTime = 1.5f;
 
-    [Tooltip("Độ nhạy xoay thân xe theo góc lái.")]
     [SerializeField] private float turnResponse = 1.8f;
 
     [Header("Wheel Visuals")]
@@ -42,7 +33,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform rearLeftWheel;
     [SerializeField] private Transform rearRightWheel;
 
-    [Tooltip("Bán kính bánh xe dùng để tính tốc độ quay visual.")]
     [SerializeField] private float wheelRadius = 0.35f;
 
     [SerializeField] private float wallImpactSpeedLoss = 0.45f;
