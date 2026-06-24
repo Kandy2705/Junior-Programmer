@@ -1515,6 +1515,8 @@ MonoBehaviour:
   mouseSensitivity: 0.18
   minPitch: -25
   maxPitch: 65
+  returnBehindVehicleWhenMouseReleased: 0
+  returnBehindSpeed: 180
   switchDuration: 0.35
 --- !u!4 &541172556 stripped
 Transform:
@@ -2496,6 +2498,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &1008501647 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7190155754503374793, guid: 6bac07d0c63b54a51817dc8d69f4f072, type: 3}
+  m_PrefabInstance: {fileID: 4165565814347493567}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1020931608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3013,7 +3020,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7848116373176817477, guid: 6bac07d0c63b54a51817dc8d69f4f072, type: 3}
   m_PrefabInstance: {fileID: 4165565814347493567}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1524616563}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51ecf26a1c9f244da96fc95ea3036de7, type: 3}
@@ -3333,6 +3340,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1524616563 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3855650206590164166, guid: 6bac07d0c63b54a51817dc8d69f4f072, type: 3}
+  m_PrefabInstance: {fileID: 4165565814347493567}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1550781272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4829,6 +4841,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 898963085131935633, guid: 6bac07d0c63b54a51817dc8d69f4f072, type: 3}
   m_PrefabInstance: {fileID: 4165565814347493567}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3940934207190885637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524616563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb50229ca303488d9fdfa6d64ba2dc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleLightToggleController
+  playerController: {fileID: 1218496285}
+  lampRenderer: {fileID: 1008501647}
+  reverseSpeedThreshold: -0.5
 --- !u!1001 &4165565814347493567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4881,10 +4908,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5814828890737269435, guid: 6bac07d0c63b54a51817dc8d69f4f072, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3855650206590164166, guid: 6bac07d0c63b54a51817dc8d69f4f072, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3940934207190885637}
   m_SourcePrefab: {fileID: 100100000, guid: 6bac07d0c63b54a51817dc8d69f4f072, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
