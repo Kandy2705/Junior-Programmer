@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         UpdateSteering(steeringInput);
         MoveVehicle();
         UpdateWheelVisuals();
-        StabilizeVehicle();
+        // StabilizeVehicle();
 
         _currentAccelerationKmhPerSecond = (_currentSpeedKmh - _previousSpeedKmh) / Time.fixedDeltaTime;
         _previousSpeedKmh = _currentSpeedKmh;
