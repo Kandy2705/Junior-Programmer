@@ -5106,6 +5106,51 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &2112868672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2112868674}
+  - component: {fileID: 2112868673}
+  m_Layer: 0
+  m_Name: SceneNavigation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2112868673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112868672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa8e7a3d185442ea84e47fbc00286c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameplayEscapeController
+  mainMenuSceneName: Main Menu
+--- !u!4 &2112868674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112868672}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 411.01505, y: 177.92006, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2121719741 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 134104, guid: 71782582b9d2cac4cba5251a3b767d13, type: 3}
@@ -5428,7 +5473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3404348692420905352, guid: 6bac07d0c63b54a51817dc8d69f4f072, type: 3}
       propertyPath: m_Mass
-      value: 1000
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 3404348692420905352, guid: 6bac07d0c63b54a51817dc8d69f4f072, type: 3}
       propertyPath: m_Constraints
@@ -5487,3 +5532,4 @@ SceneRoots:
   - {fileID: 856805926}
   - {fileID: 2020329651}
   - {fileID: 1510880928}
+  - {fileID: 2112868674}
