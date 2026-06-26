@@ -1,9 +1,6 @@
 using PrimeTween;
 using UnityEngine;
 
-/// <summary>
-/// Reusable UI panel animation helper for fade and scale transitions.
-/// </summary>
 [DisallowMultipleComponent]
 [RequireComponent(typeof(CanvasGroup))]
 public class UIPanelAnimator : MonoBehaviour

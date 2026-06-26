@@ -2,10 +2,6 @@ using System;
 using PrimeTween;
 using UnityEngine;
 
-/// <summary>
-/// Plays popup open/close scale animations for inner popup panels.
-/// Useful for Pause, Result, Settings panels.
-/// </summary>
 [DisallowMultipleComponent]
 public class UIPopOnEnableAnimator : MonoBehaviour
 {
@@ -21,7 +17,6 @@ public class UIPopOnEnableAnimator : MonoBehaviour
     [SerializeField] private float closeDuration = 0.12f;
 
     [Header("Time")]
-    [Tooltip("Bật để animation vẫn chạy khi Time.timeScale = 0.")]
     [SerializeField] private bool useUnscaledTime = true;
 
     private Vector3 _originalScale;

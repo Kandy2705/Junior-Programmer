@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlayerResetController : MonoBehaviour
 {
     [Header("Start Point")]
-    [Tooltip("Vị trí xuất phát của player. Nếu để trống, vị trí hiện tại khi Start sẽ được dùng.")]
     [SerializeField] private Transform startPoint;
 
     [Header("Physics")]

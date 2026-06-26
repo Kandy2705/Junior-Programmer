@@ -10,10 +10,8 @@ using UnityEditor;
 public class MainMenuController : MonoBehaviour
 {
     [Header("Scene Names")]
-    [Tooltip("Tên scene dùng controller thường.")]
     [SerializeField] private string normalControllerSceneName = "Prototype1_Normal";
 
-    [Tooltip("Tên scene dùng WheelCollider.")]
     [SerializeField] private string wheelColliderSceneName = "Prototype1_WheelCollider";
 
     [Header("Buttons")]

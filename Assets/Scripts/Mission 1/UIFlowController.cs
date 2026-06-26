@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class UIFlowController : MonoBehaviour
 {
     [Header("Startup")]
-    [Tooltip("Bật nếu muốn game bắt đầu từ Home. Tắt nếu muốn test trực tiếp gameplay.")]
     [SerializeField] private bool startFromHome = true;
 
     [Header("Panels")]
@@ -15,17 +14,14 @@ public class UIFlowController : MonoBehaviour
     [SerializeField] private UIPanelAnimator resultPanel;
 
     [Header("Retry Confirmation")]
-    [Tooltip("Root của FadeOverlay dùng để xác nhận Retry.")]
     [SerializeField] private UIPanelAnimator retryConfirmPanel;
 
-    [Tooltip("Bảng nhỏ bên trong FadeOverlay. Dùng để pop/thu lại.")]
     [SerializeField] private UIPopOnEnableAnimator retryConfirmContentPanel;
 
     [Header("Popup Contents")]
     [SerializeField] private UIPopOnEnableAnimator pauseContentPanel;
 
     [Header("Gameplay Root")]
-    [Tooltip("Root chứa player, obstacle, gameplay object. Có thể để trống nếu không cần ẩn hiện gameplay.")]
     [SerializeField] private GameObject gameplayRoot;
 
     [Header("Camera")]

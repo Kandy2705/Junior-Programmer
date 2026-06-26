@@ -2,11 +2,6 @@ using PrimeTween;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-/// <summary>
-/// Adds hover and click pop animations to a UI button.
-/// The button stays still when idle.
-/// Uses unscaled time so it still works while the game is paused.
-/// </summary>
 [DisallowMultipleComponent]
 public class UIButtonPopAnimator : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {

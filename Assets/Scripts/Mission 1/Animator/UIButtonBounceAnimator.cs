@@ -1,29 +1,20 @@
 using PrimeTween;
 using UnityEngine;
 
-/// <summary>
-/// Adds a looping idle bounce animation to a UI button or any RectTransform.
-/// Uses unscaled time so it can animate while gameplay is paused.
-/// </summary>
 [DisallowMultipleComponent]
 public class UIButtonBounceAnimator : MonoBehaviour
 {
     [Header("Bounce Settings")]
     [SerializeField] private bool playOnEnable = true;
 
-    [Tooltip("Scale lớn nhất khi UI nhúng nhảy.")]
     [SerializeField] private float bounceScale = 1.08f;
 
-    [Tooltip("Thời gian scale lên.")]
     [SerializeField] private float scaleUpDuration = 0.35f;
 
-    [Tooltip("Thời gian scale xuống.")]
     [SerializeField] private float scaleDownDuration = 0.35f;
 
-    [Tooltip("Delay giữa mỗi nhịp nhúng nhảy.")]
     [SerializeField] private float delayBetweenBounces = 0.15f;
 
-    [Tooltip("Bật để animation vẫn chạy khi Time.timeScale = 0.")]
     [SerializeField] private bool useUnscaledTime = true;
 
     private Vector3 _originalScale;
