@@ -350,6 +350,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ResetState()
+    {
+        _currentSpeedKmh = 0f;
+        _previousSpeedKmh = 0f;
+        _currentAccelerationKmhPerSecond = 0f;
+        _currentSteeringAngle = 0f;
+        _currentGear = 1;
+        _currentRpm = 0f;
+        _wheelSpinAngle = 0f;
+        _lastShiftTime = 0f;
+    }
+
     private bool TryGetWallCollisionNormal(Collision collision, out Vector3 wallNormal)
     {
         wallNormal = Vector3.zero;
