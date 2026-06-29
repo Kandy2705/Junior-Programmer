@@ -166,15 +166,7 @@ public class UIFlowController : MonoBehaviour
             return;
         }
 
-        // Retry từ Pause: không cần hỏi lại, đóng Pause rồi chơi lại luôn.
-        if (_isPaused && pauseContentPanel != null)
-        {
-            pauseContentPanel.PlayClose(CompleteRetryGame);
-            return;
-        }
-
-        // Retry từ Result: hiện FadeOverlay xác nhận trước.
-        if (_isShowingResult)
+        if (_isShowingResult || (_isPaused && pauseContentPanel != null))
         {
             ShowRetryConfirmation();
             return;
