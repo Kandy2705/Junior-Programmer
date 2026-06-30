@@ -4,21 +4,17 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class UIButtonBounceAnimator : MonoBehaviour
 {
-    [Header("Bounce Settings")]
+    [Header("Scale Settings")]
     [SerializeField] private bool playOnEnable = true;
 
-    [SerializeField] private float bounceScale = 1.08f;
+    [SerializeField] private float targetScale = 1.08f;
 
     [SerializeField] private float scaleUpDuration = 0.35f;
-
-    [SerializeField] private float scaleDownDuration = 0.35f;
-
-    [SerializeField] private float delayBetweenBounces = 0.15f;
 
     [SerializeField] private bool useUnscaledTime = true;
 
     private Vector3 _originalScale;
-    private Sequence _bounceSequence;
+    private Sequence _scaleSequence;
 
     private void Awake()
     {
@@ -29,42 +25,35 @@ public class UIButtonBounceAnimator : MonoBehaviour
     {
         if (playOnEnable)
         {
-            PlayBounce();
+            PlayScaleUpOnce();
         }
     }
 
     private void OnDisable()
     {
-        StopBounce();
+        StopAnimation();
     }
 
-    public void PlayBounce()
+    public void PlayScaleUpOnce()
     {
-        StopBounce();
+        StopAnimation();
 
         transform.localScale = _originalScale;
 
-        _bounceSequence = Sequence.Create(cycles: -1, useUnscaledTime: useUnscaledTime)
+        _scaleSequence = Sequence.Create(cycles: 1, useUnscaledTime: useUnscaledTime)
             .Chain(Tween.Scale(
                 transform,
-                _originalScale * bounceScale,
+                _originalScale * targetScale,
                 scaleUpDuration,
-                Ease.OutSine
-            ))
-            .Chain(Tween.Scale(
-                transform,
-                _originalScale,
-                scaleDownDuration,
-                Ease.InOutSine
-            ))
-            .ChainDelay(delayBetweenBounces);
+                Ease.OutBack
+            ));
     }
 
-    public void StopBounce()
+    public void StopAnimation()
     {
-        if (_bounceSequence.isAlive)
+        if (_scaleSequence.isAlive)
         {
-            _bounceSequence.Stop();
+            _scaleSequence.Stop();
         }
 
         transform.localScale = _originalScale;
